@@ -13,20 +13,22 @@ import javafx.scene.input.KeyCode;
 public class Snake implements Animatable {
     private static final float speed = 2;
     private int health = 100;
+    private String player;
 
     private SnakeHead head;
     private DelayedModificationList<GameEntity> body;
 
 
-    public Snake(Vec2d position) {
+    public Snake(Vec2d position, String player) {
         head = new SnakeHead(this, position);
         body = new DelayedModificationList<>();
-
+        this.player = player;
         addPart(4);
     }
 
     public void step() {
-        SnakeControl turnDir = getUserInput();
+
+        SnakeControl turnDir = getUserInput(this.player);
         head.updateRotation(turnDir, speed);
 
         updateSnakeBodyHistory();
@@ -35,11 +37,19 @@ public class Snake implements Animatable {
         body.doPendingModifications();
     }
 
-    private SnakeControl getUserInput() {
-        SnakeControl turnDir = SnakeControl.INVALID;
-        if(InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
-        if(InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
-        return turnDir;
+    private SnakeControl getUserInput(String player) {
+    if (player.equals("Player1")){
+            SnakeControl turnDir = SnakeControl.INVALID;
+            if(InputHandler.getInstance().isKeyPressed(KeyCode.A)) turnDir = SnakeControl.TURN_LEFT;
+            if(InputHandler.getInstance().isKeyPressed(KeyCode.D)) turnDir = SnakeControl.TURN_RIGHT;
+            return turnDir;
+
+    } else {
+            SnakeControl turnDir = SnakeControl.INVALID;
+            if(InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
+            if(InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
+            return turnDir;
+        }
     }
 
     public void addPart(int numParts) {
