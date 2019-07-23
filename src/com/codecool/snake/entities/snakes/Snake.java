@@ -1,13 +1,23 @@
 package com.codecool.snake.entities.snakes;
 
 import com.codecool.snake.DelayedModificationList;
+import com.codecool.snake.GameTimer;
 import com.codecool.snake.Globals;
+import com.codecool.snake.Main;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
+import javafx.stage.Stage;
+
+import java.util.Optional;
 
 
 public class Snake implements Animatable {
@@ -37,8 +47,8 @@ public class Snake implements Animatable {
 
     private SnakeControl getUserInput() {
         SnakeControl turnDir = SnakeControl.INVALID;
-        if(InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
-        if(InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
+        if (InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
+        if (InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
         return turnDir;
     }
 
@@ -60,13 +70,34 @@ public class Snake implements Animatable {
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText("Your High score is :" + (body.getList().size() + 1));
+            alert.setContentText("Choose your option");
+            ButtonType restart = new ButtonType("Restart");
+            alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
             Globals.getInstance().stopGame();
+
+
+            alert.setOnHidden(evt -> {
+                if (alert.getResult() == ButtonType.CLOSE) {
+                    Platform.exit();
+                    System.exit(0);
+                } else {
+                    //Restart function here
+//                    Platform.runLater( () -> new Main().start( new Stage() ) );
+//                    System.out.println("Restarting");
+                }
+            });
+            alert.show();
         }
+
     }
+
 
     private void updateSnakeBodyHistory() {
         GameEntity prev = head;
-        for(GameEntity currentPart : body.getList()) {
+        for (GameEntity currentPart : body.getList()) {
             currentPart.setPosition(prev.getPosition());
             prev = currentPart;
         }
@@ -75,7 +106,7 @@ public class Snake implements Animatable {
     private GameEntity getLastPart() {
         GameEntity result = body.getLast();
 
-        if(result != null) return result;
+        if (result != null) return result;
         return head;
     }
 }
