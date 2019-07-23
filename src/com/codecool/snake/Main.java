@@ -1,6 +1,7 @@
 package com.codecool.snake;
 
 import javafx.application.Application;
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -26,4 +27,6 @@ public class Main extends Application {
     public void stop() throws Exception {
         System.out.println("Exiting..");
     }
+
+
 }
