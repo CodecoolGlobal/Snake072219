@@ -81,6 +81,12 @@ public class Snake implements Animatable {
         return health;
     }
 
+    public void changeSpeed (int newSpeed){
+        //speed = newSpeed;
+        System.out.println(speed);
+    }
+
+
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");

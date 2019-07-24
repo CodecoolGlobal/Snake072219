@@ -2,7 +2,9 @@ package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.Bouncer_enemy;
 import com.codecool.snake.entities.enemies.Homecoming_missile;
-import com.codecool.snake.entities.powerups.SimplePowerUp;
+import com.codecool.snake.entities.powerups.HealthPowerUp;
+import com.codecool.snake.entities.powerups.LengthPowerUp;
+import com.codecool.snake.entities.powerups.SpeedPowerUp;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.eventhandler.InputHandler;
 
@@ -58,7 +60,9 @@ public class Game extends Pane {
     }
 
     private void spawnPowerUps(int numberOfPowerUps) {
-        for(int i = 0; i < numberOfPowerUps; ++i) new SimplePowerUp();
+        for(int i = 0; i < numberOfPowerUps; ++i) new LengthPowerUp();
+        new HealthPowerUp();
+        new SpeedPowerUp();
     }
 
     private void setupInputHandling() {
