@@ -12,8 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 
-
-
 public class Snake implements Animatable {
     private static final float speed = 2;
     private int health = 100;
@@ -82,31 +80,38 @@ public class Snake implements Animatable {
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
             System.out.println("Game Over");
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Game Over");
-            alert.setHeaderText("Player 1 Score: " + Globals.getInstance().snake.body.getList().size() +
-                    "\n" + "Player 2 Score: " + Globals.getInstance().snake2.body.getList().size());
-            alert.setContentText("Choose your option");
-            ButtonType restart = new ButtonType("Restart");
-            alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
-            Globals.getInstance().stopGame();
-
-
-
-            alert.setOnHidden(evt -> {
-                if (alert.getResult() == ButtonType.CLOSE) {
-                    Platform.exit();
-                    System.exit(0);
-                } else {
-                    Globals.getInstance().display.clear();
-                    Globals.getInstance().game.init();
-                    Globals.getInstance().startGame();
-                    System.out.println("Restarting");
-                }
-            });
-            alert.show();
+            gameOverPopUp();
         }
+    }
 
+    //this could go somewhere else
+    public void gameOverPopUp() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Game Over");
+        alert.setHeaderText("Player 1 Score: " + Globals.getInstance().snake.body.getList().size() +
+                "\n" + "Player 2 Score: " + Globals.getInstance().snake2.body.getList().size());
+        alert.setContentText("Choose your option");
+        ButtonType restart = new ButtonType("Restart");
+        alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
+        Globals.getInstance().stopGame();
+
+        alert.setOnHidden(evt -> {
+            if (alert.getResult() == ButtonType.CLOSE) {
+                Platform.exit();
+                System.exit(0);
+            } else {
+                System.out.println("Restarting");
+                gameRestart();
+            }
+        });
+        alert.show();
+    }
+
+    //this could go somewhere else
+    private void gameRestart() {
+        Globals.getInstance().display.clear();
+        Globals.getInstance().game.init();
+        Globals.getInstance().startGame();
     }
 
 
