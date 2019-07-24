@@ -12,6 +12,8 @@ import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
+import java.util.Random;
+
 
 public class Game extends Pane {
     private Snake snake1 = null;
@@ -55,14 +57,14 @@ public class Game extends Pane {
     }
 
     private void spawnEnemies(int numberOfEnemies) {
-        for(int i = 0; i < numberOfEnemies; ++i) new Bouncer_enemy();
-        for(int i = 0; i < numberOfEnemies; ++i) new Homecoming_missile();
+        for (int i = 0; i < numberOfEnemies; ++i) new Bouncer_enemy();
+        for (int i = 0; i < numberOfEnemies; ++i) new Homecoming_missile();
 
     }
 
     private void spawnPowerUps(int numberOfPowerUps) {
-        for(int i = 0; i < numberOfPowerUps; ++i) new LengthPowerUp();
-        new HealthPowerUp();
+        for (int i = 0; i < numberOfPowerUps; ++i) new LengthPowerUp();
+        for (int i = 0; i < numberOfPowerUps; ++i) new HealthPowerUp();
         new SpeedPowerUp();
     }
 
@@ -71,4 +73,17 @@ public class Game extends Pane {
         scene.setOnKeyPressed(event -> InputHandler.getInstance().setKeyPressed(event.getCode()));
         scene.setOnKeyReleased(event -> InputHandler.getInstance().setKeyReleased(event.getCode()));
     }
+
+    public void spawnPowerUps() {
+        Random rand = new Random();
+        int n = rand.nextInt(1000);
+        if (n == 333) {
+            new LengthPowerUp();
+        } else if (n == 666) {
+            new HealthPowerUp();
+        } else if (n == 999) {
+            new SpeedPowerUp();
+        }
+    }
 }
+
