@@ -12,8 +12,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 
-import java.time.Duration;
-
 public class Snake implements Animatable {
     private static final float speed = 2;
     private int health = 100;
@@ -77,6 +75,11 @@ public class Snake implements Animatable {
 
     public void changeHealth(int diff) {
         health += diff;
+        System.out.println(health);
+    }
+
+    public int getHealth() {
+        return health;
     }
 
     private void checkForGameOverConditions() {
@@ -99,18 +102,16 @@ public class Snake implements Animatable {
             alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
             Globals.getInstance().stopGame();
 
-            alert.setOnHidden(evt -> {
-                if (alert.getResult() == ButtonType.CLOSE) {
-                    Platform.exit();
-                    System.exit(0);
-                } else {
-                    System.out.println("Restarting");
-                    gameRestart();
-                }
-            });
-            alert.show();
-
-        }
+        alert.setOnHidden(evt -> {
+            if (alert.getResult() == ButtonType.CLOSE) {
+                Platform.exit();
+                System.exit(0);
+            } else {
+                System.out.println("Restarting");
+                gameRestart();
+            }
+        });
+        alert.show();
     }
 
     //this could go somewhere else
