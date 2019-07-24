@@ -1,6 +1,7 @@
 package com.codecool.snake;
 
 import javafx.application.Application;
+
 import javafx.scene.Scene;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
@@ -21,7 +22,7 @@ public class Main extends Application {
         Game game = new Game();
         Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
 
-        int actualHealth = game.snake.getHealth();
+        int actualHealth = game.snake1.getHealth();
         Text t = new Text (750, 40, String.format("Health: %d", actualHealth));
         DropShadow ds = new DropShadow();
         ds.setOffsetY(3.0f);
