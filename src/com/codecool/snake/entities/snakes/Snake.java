@@ -98,11 +98,9 @@ public class Snake implements Animatable {
                     Platform.exit();
                     System.exit(0);
                 } else {
-                    //Restart function here
                     Globals.getInstance().display.clear();
                     Globals.getInstance().game.init();
-
-                    //Platform.runLater( () -> new Main().start( new Stage() ) );
+                    Globals.getInstance().startGame();
                     System.out.println("Restarting");
                 }
             });
