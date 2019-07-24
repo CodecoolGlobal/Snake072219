@@ -32,5 +32,6 @@ public class GameTimer {
     public void play() {
         timer.play();
         System.out.println("GameTimer playing.");
+        Globals.getInstance().game.alreadyExecuted = false;
     }
 }
