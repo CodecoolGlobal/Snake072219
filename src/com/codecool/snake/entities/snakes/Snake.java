@@ -12,6 +12,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
 
+import java.time.Duration;
+
 public class Snake implements Animatable {
     private static final float speed = 2;
     private int health = 100;
@@ -107,6 +109,7 @@ public class Snake implements Animatable {
                 }
             });
             alert.show();
+
         }
     }
 

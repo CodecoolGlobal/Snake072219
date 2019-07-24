@@ -7,8 +7,12 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.powerups.SimplePowerUp;
 
+import java.util.concurrent.ScheduledExecutorService;
+
 import com.sun.javafx.geom.Vec2d;
 import javafx.geometry.Point2D;
+
+import java.time.Duration;
 
 
 public class SnakeHead extends GameEntity implements Interactable {
@@ -37,22 +41,27 @@ public class SnakeHead extends GameEntity implements Interactable {
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
     }
-//    boolean alreadyExecuted = false;
+
+    //    boolean alreadyExecuted = false;
     @Override
     public void apply(GameEntity entity) {
-        if(entity instanceof Enemy){
+        if (entity instanceof Enemy) {
             System.out.println(getMessage());
             snake.changeHealth(((Enemy) entity).getDamage());
         }
-        if(entity instanceof SimplePowerUp){
+        if (entity instanceof SimplePowerUp) {
             System.out.println(getMessage());
             snake.addPart(4);
         }
-        if(entity instanceof SnakeHead){
-            Globals.getInstance().stopGame();
+        if (entity instanceof SnakeHead) {
+            try {
                 snake.gameOverPopUp();
+                Thread.sleep(4);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
+    }
 
 
     @Override
