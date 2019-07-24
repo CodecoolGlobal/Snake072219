@@ -102,16 +102,18 @@ public class Snake implements Animatable {
             alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
             Globals.getInstance().stopGame();
 
-        alert.setOnHidden(evt -> {
-            if (alert.getResult() == ButtonType.CLOSE) {
-                Platform.exit();
-                System.exit(0);
-            } else {
-                System.out.println("Restarting");
-                gameRestart();
-            }
-        });
-        alert.show();
+            alert.setOnHidden(evt -> {
+                if (alert.getResult() == ButtonType.CLOSE) {
+                    Platform.exit();
+                    System.exit(0);
+                } else {
+                    System.out.println("Restarting");
+                    gameRestart();
+                }
+            });
+            alert.show();
+        }
+
     }
 
     //this could go somewhere else
