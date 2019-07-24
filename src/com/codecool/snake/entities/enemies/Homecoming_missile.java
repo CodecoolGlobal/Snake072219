@@ -43,10 +43,13 @@ public class Homecoming_missile extends Enemy implements Animatable, Interactabl
             System.out.println(getMessage());
             destroy();
         }
-        double dir = Utils.getDirectionBetweenTwo(this, Globals.getInstance().snake.getHead());
-        setRotate(dir);
+        double dir_snake = Utils.getDirectionBetweenTwo(this, Globals.getInstance().snake.getHead());
+        double dir_snake2 = Utils.getDirectionBetweenTwo(this, Globals.getInstance().snake2.getHead());
+
+
+        setRotate(dir_snake);
         int speed = 1;
-        heading = Utils.directionToVector(dir,speed);
+        heading = Utils.directionToVector(dir_snake,speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
     }

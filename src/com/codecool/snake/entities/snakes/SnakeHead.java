@@ -37,7 +37,7 @@ public class SnakeHead extends GameEntity implements Interactable {
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
     }
-
+//    boolean alreadyExecuted = false;
     @Override
     public void apply(GameEntity entity) {
         if(entity instanceof Enemy){
@@ -48,7 +48,12 @@ public class SnakeHead extends GameEntity implements Interactable {
             System.out.println(getMessage());
             snake.addPart(4);
         }
-    }
+        if(entity instanceof SnakeHead){
+            Globals.getInstance().stopGame();
+                snake.gameOverPopUp();
+            }
+        }
+
 
     @Override
     public String getMessage() {

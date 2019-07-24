@@ -86,25 +86,28 @@ public class Snake implements Animatable {
 
     //this could go somewhere else
     public void gameOverPopUp() {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Game Over");
-        alert.setHeaderText("Player 1 Score: " + Globals.getInstance().snake.body.getList().size() +
-                "\n" + "Player 2 Score: " + Globals.getInstance().snake2.body.getList().size());
-        alert.setContentText("Choose your option");
-        ButtonType restart = new ButtonType("Restart");
-        alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
-        Globals.getInstance().stopGame();
+        if (!Globals.getInstance().game.alreadyExecuted) {
+            Globals.getInstance().game.alreadyExecuted = true;
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText("Player 1 Score: " + Globals.getInstance().snake.body.getList().size() +
+                    "\n" + "Player 2 Score: " + Globals.getInstance().snake2.body.getList().size());
+            alert.setContentText("Choose your option");
+            ButtonType restart = new ButtonType("Restart");
+            alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
+            Globals.getInstance().stopGame();
 
-        alert.setOnHidden(evt -> {
-            if (alert.getResult() == ButtonType.CLOSE) {
-                Platform.exit();
-                System.exit(0);
-            } else {
-                System.out.println("Restarting");
-                gameRestart();
-            }
-        });
-        alert.show();
+            alert.setOnHidden(evt -> {
+                if (alert.getResult() == ButtonType.CLOSE) {
+                    Platform.exit();
+                    System.exit(0);
+                } else {
+                    System.out.println("Restarting");
+                    gameRestart();
+                }
+            });
+            alert.show();
+        }
     }
 
     //this could go somewhere else
