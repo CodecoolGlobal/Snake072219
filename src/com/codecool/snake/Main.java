@@ -24,7 +24,7 @@ public class Main extends Application {
         Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
         mainScene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
-        int actualHealth = Globals.getInstance().snake.getHealth()
+        int actualHealth = Globals.getInstance().snake.getHealth();
         Text t = new Text(750, 40, String.format("Health: %d", actualHealth));
         DropShadow ds = new DropShadow();
         ds.setOffsetY(3.0f);
