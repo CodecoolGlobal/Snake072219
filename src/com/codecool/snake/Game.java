@@ -11,7 +11,7 @@ import javafx.scene.layout.Pane;
 
 
 public class Game extends Pane {
-    private Snake snake = null;
+    public Snake snake = null;
     private GameTimer gameTimer = new GameTimer();
 
 

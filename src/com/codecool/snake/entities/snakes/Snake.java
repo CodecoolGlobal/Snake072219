@@ -5,7 +5,6 @@ import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
-
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.input.KeyCode;
 
@@ -54,6 +53,11 @@ public class Snake implements Animatable {
 
     public void changeHealth(int diff) {
         health += diff;
+        System.out.println(health);
+    }
+
+    public int getHealth() {
+        return health;
     }
 
     private void checkForGameOverConditions() {
