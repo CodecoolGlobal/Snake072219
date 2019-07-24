@@ -6,6 +6,7 @@ import com.codecool.snake.entities.powerups.HealthPowerUp;
 import com.codecool.snake.entities.powerups.LengthPowerUp;
 import com.codecool.snake.entities.powerups.SpeedPowerUp;
 import com.codecool.snake.entities.snakes.Snake;
+import com.codecool.snake.entities.snakes.SnakeHealth;
 import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
@@ -20,6 +21,7 @@ public class Game extends Pane {
     private Snake snake2 = null;
     private GameTimer gameTimer = new GameTimer();
     public boolean alreadyExecuted = false;
+    public SnakeHealth SnakeHealth1 = new SnakeHealth();
 
 
     public Game() {

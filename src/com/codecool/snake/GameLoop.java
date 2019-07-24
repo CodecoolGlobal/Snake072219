@@ -28,6 +28,7 @@ public class GameLoop {
 
     public void step() {
         if (running) {
+            getInstance().game.SnakeHealth1.getActualHealth();
             getInstance().game.spawnPowerUps();
             getInstance().snake.step();
             getInstance().snake2.step();
