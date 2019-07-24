@@ -37,6 +37,9 @@ public class Globals {
         resources.addImage("Bouncer_enemy", new Image("worm_enemy.png"));
         resources.addImage("Enemy2", new Image("enemy_created_first.png"));
         resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
+        resources.addImage("PowerUpNut", new Image("powerup_nut.png"));
+        resources.addImage("PowerUpSpeed", new Image("powerup_speed.png"));
+
     }
 
     public Image getImage(String name) {
