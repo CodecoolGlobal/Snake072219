@@ -6,10 +6,10 @@ import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.SnakeHead;
+
 import java.util.Random;
 
 import javafx.geometry.Point2D;
-
 
 
 public class Bouncer_enemy extends Enemy implements Animatable, Interactable {
@@ -18,7 +18,7 @@ public class Bouncer_enemy extends Enemy implements Animatable, Interactable {
     private static Random rnd = new Random();
 
     public Bouncer_enemy() {
-        super(-10,2);
+        super(-10, 2);
 
         setImage(Globals.getInstance().getImage("Bouncer_enemy"));
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
@@ -32,8 +32,8 @@ public class Bouncer_enemy extends Enemy implements Animatable, Interactable {
     @Override
     public void step() {
         if (isOutOfBounds()) {
-            heading = Utils.directionToVector(getRotate()-60, 2);
-            setRotate(getRotate()-60);
+            heading = Utils.directionToVector(getRotate() - 60, 2);
+            setRotate(getRotate() - 60);
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -41,7 +41,7 @@ public class Bouncer_enemy extends Enemy implements Animatable, Interactable {
 
     @Override
     public void apply(GameEntity entity) {
-        if(entity instanceof SnakeHead){
+        if (entity instanceof SnakeHead) {
             System.out.println(getMessage());
             destroy();
         }

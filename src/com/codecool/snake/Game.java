@@ -22,6 +22,7 @@ public class Game extends Pane {
     private GameTimer gameTimer = new GameTimer();
     public boolean alreadyExecuted = false;
     public SnakeHealth SnakeHealth1 = new SnakeHealth();
+    public SnakeHealth SnakeHealth2 = new SnakeHealth();
 
 
     public Game() {
