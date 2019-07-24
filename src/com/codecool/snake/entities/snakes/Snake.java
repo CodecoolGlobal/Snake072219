@@ -75,7 +75,6 @@ public class Snake implements Animatable {
 
     public void changeHealth(int diff) {
         health += diff;
-        System.out.println(health);
     }
 
     public int getHealth() {

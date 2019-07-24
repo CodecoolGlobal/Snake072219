@@ -1,14 +1,7 @@
 package com.codecool.snake;
 
 import javafx.application.Application;
-
 import javafx.scene.Scene;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontSmoothingType;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -24,7 +17,7 @@ public class Main extends Application {
         Scene mainScene = new Scene(game, Globals.WINDOW_WIDTH, Globals.WINDOW_HEIGHT);
         mainScene.getStylesheets().addAll(this.getClass().getResource("style.css").toExternalForm());
 
-        int actualHealth = Globals.getInstance().snake.getHealth();
+        /*int actualHealth = Globals.getInstance().snake.getHealth();
         int actualHealth2 = Globals.getInstance().snake2.getHealth();
         Text t = new Text(750, 40, String.format("Health: %d", actualHealth));
         Text t2 = new Text(50,40,String.format("Health: %d", actualHealth2));
@@ -45,7 +38,7 @@ public class Main extends Application {
         t2.setFont(Font.font(null, FontWeight.BOLD, 32));
 
         game.getChildren().add(t);
-        game.getChildren().add(t2);
+        game.getChildren().add(t2);*/
 
         primaryStage.setTitle("Snake Game");
         primaryStage.setScene(mainScene);
