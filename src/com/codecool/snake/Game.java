@@ -76,12 +76,12 @@ public class Game extends Pane {
 
     public void spawnPowerUps() {
         Random rand = new Random();
-        int n = rand.nextInt(1000);
-        if (n == 333) {
+        int n = rand.nextInt(500);
+        if (n == 33) {
             new LengthPowerUp();
-        } else if (n == 666) {
+        } else if (n == 66) {
             new HealthPowerUp();
-        } else if (n == 999) {
+        } else if (n == 99) {
             new SpeedPowerUp();
         }
     }
