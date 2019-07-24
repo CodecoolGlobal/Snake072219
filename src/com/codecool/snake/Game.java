@@ -35,7 +35,7 @@ public class Game extends Pane {
         spawnSnake(250, 500);
         spawnSnake2(750, 500);
         spawnEnemies(4);
-        spawnPowerUps(4);
+        spawnPowerUps(2);
 
         GameLoop gameLoop = new GameLoop(snake1, snake2);
         Globals.getInstance().setGameLoop(gameLoop);
@@ -65,7 +65,7 @@ public class Game extends Pane {
     private void spawnPowerUps(int numberOfPowerUps) {
         for (int i = 0; i < numberOfPowerUps; ++i) new LengthPowerUp();
         for (int i = 0; i < numberOfPowerUps; ++i) new HealthPowerUp();
-        new SpeedPowerUp();
+        for (int i = 0; i < numberOfPowerUps; ++i) new HealthPowerUp();
     }
 
     private void setupInputHandling() {
