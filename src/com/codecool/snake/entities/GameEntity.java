@@ -1,8 +1,6 @@
 package com.codecool.snake.entities;
 
 import com.codecool.snake.Globals;
-
-import com.codecool.snake.entities.powerups.LengthPowerUp;
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.image.ImageView;
 
@@ -28,7 +26,7 @@ public abstract class GameEntity extends ImageView {
 
     public boolean isOutOfBounds() {
         if (getX() > Globals.WINDOW_WIDTH || getX() < 0 ||
-            getY() > Globals.WINDOW_HEIGHT || getY() < 0) {
+                getY() > Globals.WINDOW_HEIGHT || getY() < 0) {
             return true;
         }
         return false;

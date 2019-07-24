@@ -28,6 +28,7 @@ public class GameLoop {
 
     public void step() {
         if (running) {
+            getInstance().game.spawnPowerUps();
             getInstance().snake.step();
             getInstance().snake2.step();
             for (GameEntity gameObject : getInstance().display.getObjectList()) {
