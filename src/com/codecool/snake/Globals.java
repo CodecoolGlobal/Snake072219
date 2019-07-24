@@ -1,8 +1,8 @@
 package com.codecool.snake;
 
+import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.resources.Resources;
 import javafx.scene.image.Image;
-import javafx.scene.layout.Pane;
 
 // class for holding all static stuff
 public class Globals {
@@ -13,13 +13,16 @@ public class Globals {
 
     public Display display;
     public Game game;
+    public Snake snake;
+    public Snake snake2;
+
 
     private GameLoop gameLoop;
     private Resources resources;
 
 
     public static Globals getInstance() {
-        if(instance == null) instance = new Globals();
+        if (instance == null) instance = new Globals();
         return instance;
     }
 
@@ -31,15 +34,22 @@ public class Globals {
         resources = new Resources();
         resources.addImage("SnakeHead", new Image("snake_head.png"));
         resources.addImage("SnakeBody", new Image("snake_body.png"));
-        resources.addImage("SimpleEnemy", new Image("simple_enemy.png"));
+        resources.addImage("Bouncer_enemy", new Image("worm_enemy.png"));
+        resources.addImage("Enemy2", new Image("enemy_created_first.png"));
         resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
     }
 
-    public Image getImage(String name) { return resources.getImage(name); }
+    public Image getImage(String name) {
+        return resources.getImage(name);
+    }
 
-    public void startGame() { gameLoop.start(); }
+    public void startGame() {
+        gameLoop.start();
+    }
 
-    public void stopGame() { gameLoop.stop(); }
+    public void stopGame() {
+        gameLoop.stop();
+    }
 
     private Globals() {
         // singleton needs the class to have private constructor

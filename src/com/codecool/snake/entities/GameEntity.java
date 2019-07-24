@@ -32,4 +32,5 @@ public abstract class GameEntity extends ImageView {
         }
         return false;
     }
+
 }

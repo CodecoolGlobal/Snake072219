@@ -1,24 +1,16 @@
 package com.codecool.snake.entities.snakes;
 
 import com.codecool.snake.DelayedModificationList;
-import com.codecool.snake.GameTimer;
 import com.codecool.snake.Globals;
-import com.codecool.snake.Main;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.input.KeyCode;
-import javafx.stage.Stage;
-
-import java.util.Optional;
-
 
 public class Snake implements Animatable {
     private static final float speed = 2;
@@ -26,8 +18,8 @@ public class Snake implements Animatable {
     private String player;
 
     private SnakeHead head;
-    private DelayedModificationList<GameEntity> body;
 
+    private DelayedModificationList<GameEntity> body;
 
     public Snake(Vec2d position, String player) {
         head = new SnakeHead(this, position);
@@ -36,11 +28,18 @@ public class Snake implements Animatable {
         addPart(4);
     }
 
+    public SnakeHead getHead() {
+        return head;
+    }
+
     public void step() {
 
         SnakeControl turnDir = getUserInput(this.player);
-        head.updateRotation(turnDir, speed);
-
+        if (turnDir.equals(SnakeControl.SHOOT)) {
+            System.out.println("shoot");
+        } else {
+            head.updateRotation(turnDir, speed);
+        }
         updateSnakeBodyHistory();
         checkForGameOverConditions();
 
@@ -48,16 +47,17 @@ public class Snake implements Animatable {
     }
 
     private SnakeControl getUserInput(String player) {
-    if (player.equals("Player1")){
+        if (player.equals("Player1")) {
             SnakeControl turnDir = SnakeControl.INVALID;
-            if(InputHandler.getInstance().isKeyPressed(KeyCode.A)) turnDir = SnakeControl.TURN_LEFT;
-            if(InputHandler.getInstance().isKeyPressed(KeyCode.D)) turnDir = SnakeControl.TURN_RIGHT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.A)) turnDir = SnakeControl.TURN_LEFT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.D)) turnDir = SnakeControl.TURN_RIGHT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.SHIFT)) turnDir = SnakeControl.SHOOT;
             return turnDir;
 
-    } else {
+        } else {
             SnakeControl turnDir = SnakeControl.INVALID;
-            if(InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
-            if(InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
             return turnDir;
         }
     }
@@ -79,29 +79,39 @@ public class Snake implements Animatable {
 
     private void checkForGameOverConditions() {
         if (head.isOutOfBounds() || health <= 0) {
-            System.out.println("Gamee Over");
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Game Over");
-            alert.setHeaderText("Your High score is :" + (body.getList().size() + 1));
-            alert.setContentText("Choose your option");
-            ButtonType restart = new ButtonType("Restart");
-            alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
-            Globals.getInstance().stopGame();
-
-
-            alert.setOnHidden(evt -> {
-                if (alert.getResult() == ButtonType.CLOSE) {
-                    Platform.exit();
-                    System.exit(0);
-                } else {
-                    //Restart function here
-//                    Platform.runLater( () -> new Main().start( new Stage() ) );
-//                    System.out.println("Restarting");
-                }
-            });
-            alert.show();
+            System.out.println("Game Over");
+            gameOverPopUp();
         }
+    }
 
+    //this could go somewhere else
+    public void gameOverPopUp() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Game Over");
+        alert.setHeaderText("Player 1 Score: " + Globals.getInstance().snake.body.getList().size() +
+                "\n" + "Player 2 Score: " + Globals.getInstance().snake2.body.getList().size());
+        alert.setContentText("Choose your option");
+        ButtonType restart = new ButtonType("Restart");
+        alert.getButtonTypes().setAll(restart, ButtonType.CLOSE);
+        Globals.getInstance().stopGame();
+
+        alert.setOnHidden(evt -> {
+            if (alert.getResult() == ButtonType.CLOSE) {
+                Platform.exit();
+                System.exit(0);
+            } else {
+                System.out.println("Restarting");
+                gameRestart();
+            }
+        });
+        alert.show();
+    }
+
+    //this could go somewhere else
+    private void gameRestart() {
+        Globals.getInstance().display.clear();
+        Globals.getInstance().game.init();
+        Globals.getInstance().startGame();
     }
 
 
