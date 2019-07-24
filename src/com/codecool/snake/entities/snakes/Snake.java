@@ -1,9 +1,6 @@
 package com.codecool.snake.entities.snakes;
 
-import com.codecool.snake.DelayedModificationList;
-import com.codecool.snake.GameTimer;
-import com.codecool.snake.Globals;
-import com.codecool.snake.Main;
+import com.codecool.snake.*;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.eventhandler.InputHandler;
@@ -95,8 +92,11 @@ public class Snake implements Animatable {
                     System.exit(0);
                 } else {
                     //Restart function here
-//                    Platform.runLater( () -> new Main().start( new Stage() ) );
-//                    System.out.println("Restarting");
+                    Globals.getInstance().display.clear();
+                    Globals.getInstance().game.init();
+
+                    //Platform.runLater( () -> new Main().start( new Stage() ) );
+                    System.out.println("Restarting");
                 }
             });
             alert.show();
