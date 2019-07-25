@@ -135,6 +135,12 @@ public class Snake implements Animatable {
 
     //this could go somewhere else
     private void gameRestart() {
+        InputHandler.getInstance().removeKey(KeyCode.SPACE);
+        InputHandler.getInstance().removeKey(KeyCode.CONTROL);
+        InputHandler.getInstance().removeKey(KeyCode.A);
+        InputHandler.getInstance().removeKey(KeyCode.D);
+        InputHandler.getInstance().removeKey(KeyCode.LEFT);
+        InputHandler.getInstance().removeKey(KeyCode.RIGHT);
         Globals.getInstance().display.clear();
         Globals.getInstance().game.init();
         Globals.getInstance().startGame();
