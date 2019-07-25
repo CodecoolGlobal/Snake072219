@@ -1,8 +1,11 @@
 package com.codecool.snake;
 
 import com.codecool.snake.entities.GameEntity;
+import com.codecool.snake.entities.snakes.Snake;
 import javafx.geometry.Point2D;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Utils {
@@ -29,4 +32,12 @@ public class Utils {
         int randomInt = randInt.nextInt(bound);
         return randomInt;
     }
+
+    public static double getDistanceBetweenEntities(GameEntity baseEntity, GameEntity otherEntity) {
+        int deltaX = (int) (baseEntity.getX() - otherEntity.getY());
+        int deltaY = (int) (baseEntity.getY() - otherEntity.getY());
+        int distance = (int) Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
+        return distance;
+    }
 }
+
