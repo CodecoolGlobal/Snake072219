@@ -6,6 +6,7 @@ import com.codecool.snake.entities.powerups.HealthPowerUp;
 import com.codecool.snake.entities.powerups.LengthPowerUp;
 import com.codecool.snake.entities.powerups.SpeedPowerUp;
 import com.codecool.snake.entities.snakes.Snake;
+import com.codecool.snake.entities.snakes.SnakeHealth;
 import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
@@ -20,6 +21,8 @@ public class Game extends Pane {
     private Snake snake2 = null;
     private GameTimer gameTimer = new GameTimer();
     public boolean alreadyExecuted = false;
+    public SnakeHealth SnakeHealth1 = new SnakeHealth();
+    public SnakeHealth SnakeHealth2 = new SnakeHealth();
 
 
     public Game() {
@@ -76,12 +79,12 @@ public class Game extends Pane {
 
     public void spawnPowerUps() {
         Random rand = new Random();
-        int n = rand.nextInt(1000);
-        if (n == 333) {
+        int n = rand.nextInt(500);
+        if (n == 33) {
             new LengthPowerUp();
-        } else if (n == 666) {
+        } else if (n == 66) {
             new HealthPowerUp();
-        } else if (n == 999) {
+        } else if (n == 99) {
             new SpeedPowerUp();
         }
     }

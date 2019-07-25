@@ -85,15 +85,14 @@ public class Snake implements Animatable {
 
     public void changeHealth(int diff) {
         health += diff;
-        System.out.println(health);
     }
 
     public int getHealth() {
         return health;
     }
 
-    public void changeSpeed (final int newSpeed){
-
+    public void changeSpeed(int newSpeed) {
+        //speed = newSpeed;
         System.out.println(speed);
     }
 
