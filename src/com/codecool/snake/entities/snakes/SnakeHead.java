@@ -64,7 +64,7 @@ public class SnakeHead extends GameEntity implements Interactable {
             //snake.changeSpeed(int some_speed);
         }
         if(entity instanceof Beam){
-            snake.changeHealth(1);
+            snake.changeHealth(-1);
         }
         if (entity instanceof SnakeHead) {
             try {
