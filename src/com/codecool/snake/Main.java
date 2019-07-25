@@ -29,12 +29,12 @@ public class Main extends Application {
 
         game.start();
 
-        String bip = "/home/roland1/Codecool/OOP/3TW/Snake072219/intro-music.wav";
+        String bip = "intro-music.wav";
         Media hit = new Media(new File(bip).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-        mediaPlayer.setAutoPlay(true);
+//        mediaPlayer.setAutoPlay(true);
     }
 
     @Override
