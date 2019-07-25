@@ -37,7 +37,7 @@ public class Game extends Pane {
     public void init() {
         spawnSnake(250, 500);
         spawnSnake2(750, 500);
-        spawnEnemies(4);
+        spawnEnemies(2);
         spawnPowerUps(2);
 
         GameLoop gameLoop = new GameLoop(snake1, snake2);
@@ -86,6 +86,15 @@ public class Game extends Pane {
             new HealthPowerUp();
         } else if (n == 99) {
             new CombinedPowerUp();
+        }
+    }
+    public void spawnEnemies() {
+        Random rand = new Random();
+        int n = rand.nextInt(500);
+        if (n == 200) {
+            new Bouncer_enemy();
+        } else if (n == 400) {
+            new Homing_rocket();
         }
     }
 }
