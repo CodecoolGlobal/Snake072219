@@ -19,6 +19,9 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
     private Point2D heading;
     private static Random rnd = new Random();
 
+    public List<Snake> snakes = new ArrayList<>();
+
+
     public Homing_rocket(){
         super(-1,-10);
 
@@ -40,12 +43,6 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
             setRotate(getRotate() - 60);
         }
 
-        List<Snake> snakes = new ArrayList<>();
-        snakes.add(Globals.getInstance().snake);
-        snakes.add(Globals.getInstance().snake2);
-        int index = rnd.nextInt(snakes.size());
-        snakes.get(index).getHead();
-
         double dir = Utils.getDirectionBetweenTwo(this, getClosestSnake());
         setRotate(dir);
         double speed = 1;
@@ -55,9 +52,8 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
         setY(getY() + heading.getY());
     }
 
-    public SnakeHead getClosestSnake() {
 
-        List<Snake> snakes = new ArrayList<>();
+    public SnakeHead getClosestSnake() {
         snakes.add(Globals.getInstance().snake);
         snakes.add(Globals.getInstance().snake2);
         List<Double> distances = new ArrayList<>();

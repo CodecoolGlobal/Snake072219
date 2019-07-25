@@ -43,6 +43,7 @@ public class Globals {
         resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
         resources.addImage("PowerUpNut", new Image("powerup_nut.png"));
         resources.addImage("PowerUpCombined", new Image("powerup_combined.png"));
+        resources.addImage("Beam", new Image("laserc.gif"));
     }
 
     public Image getImage(String name) {
