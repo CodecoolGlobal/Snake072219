@@ -23,6 +23,9 @@ public class SnakeHead extends GameEntity implements Interactable {
         setImage(Globals.getInstance().getImage("SnakeHead"));
         setPosition(position);
     }
+    public Snake getSnake(){
+        return snake;
+    }
 
     public void updateRotation(SnakeControl turnDirection, float speed) {
         double headRotation = getRotate();
@@ -47,26 +50,31 @@ public class SnakeHead extends GameEntity implements Interactable {
             System.out.println(getMessage());
             snake.changeLives(((Enemy) entity).getDamage());
         }
-        if(entity instanceof LengthPowerUp){
+        if (entity instanceof LengthPowerUp) {
             System.out.println(getMessage());
             snake.addPart(4);
         }
-        if(entity instanceof HealthPowerUp){
+        if (entity instanceof HealthPowerUp) {
             System.out.println(getMessage());
-            if(snake.getLives() < 4){
+            if (snake.getLives() < 4) {
                 snake.changeLives(1);
             }
         }
-        if(entity instanceof CombinedPowerUp) {
+        if (entity instanceof CombinedPowerUp) {
             System.out.println(getMessage());
-            if(snake.getLives() < 4){
+            if (snake.getLives() < 4) {
                 snake.changeLives(1);
             }
             snake.addPart(4);
         }
-        if(entity instanceof Beam){
-            snake.changeLives(-1);
-        }
+//        if (entity instanceof Beam) {
+//            if (this.equals(entity)) {
+//                snake.changeLives(-1);
+////                entity.changeLives(-1);
+//
+//            }
+//        }
+
         if (entity instanceof SnakeHead) {
             try {
                 snake.gameOverPopUp();

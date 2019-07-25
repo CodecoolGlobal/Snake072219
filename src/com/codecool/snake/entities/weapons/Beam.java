@@ -25,6 +25,7 @@ public class Beam extends GameEntity implements Interactable, Animatable {
         setX(snakeHead.getX());
         setY(snakeHead.getY());
         setRotate(snakeHead.getRotate() - 90);
+
         double direction = (snake.getHead().getRotate());
         setRotate(direction);
         heading = Utils.directionToVector(direction, speed);
@@ -45,9 +46,16 @@ public class Beam extends GameEntity implements Interactable, Animatable {
 
     @Override
     public void apply(GameEntity entity) {
+
         if (entity instanceof Enemy) {
             System.out.print(getMessage());
             destroy();
+        }
+        if (entity instanceof SnakeHead) {
+            if (!entity.equals(snake.getHead())) {
+                ((SnakeHead)entity).getSnake().changeLives(-1);
+                destroy();
+            }
         }
     }
 

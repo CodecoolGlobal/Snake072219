@@ -44,7 +44,6 @@ public class Snake implements Animatable {
                 InputHandler.getInstance().removeKey(KeyCode.SPACE);
                 InputHandler.getInstance().removeKey(KeyCode.CONTROL);
             }
-            System.out.println("shoot");
         } else {
             head.updateRotation(turnDir, speed);
         }
@@ -79,6 +78,14 @@ public class Snake implements Animatable {
         for (int i = 0; i < numParts; i++) {
             SnakeBody newBodyPart = new SnakeBody(position);
             body.add(newBodyPart);
+        }
+        Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
+    }
+
+    public void removePart(int numParts) {
+
+        for (int i = 0; i < numParts; i++) {
+            body.remove(body.getLast());
         }
         Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
     }
