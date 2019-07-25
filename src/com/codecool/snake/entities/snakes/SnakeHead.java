@@ -65,7 +65,7 @@ public class SnakeHead extends GameEntity implements Interactable {
             snake.addPart(4);
         }
         if(entity instanceof Beam){
-            snake.changeLives(-1);
+            snake.removePart(1);
         }
         if (entity instanceof SnakeHead) {
             try {

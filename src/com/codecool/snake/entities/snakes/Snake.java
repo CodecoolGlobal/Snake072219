@@ -83,6 +83,14 @@ public class Snake implements Animatable {
         Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
     }
 
+    public void removePart(int numParts) {
+
+        for (int i = 0; i < numParts; i++) {
+            body.remove(body.getLast());
+        }
+        Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
+    }
+
     public void changeLives(int diff) {
         lives += diff;
     }
