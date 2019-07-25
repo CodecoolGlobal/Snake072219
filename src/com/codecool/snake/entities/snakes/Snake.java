@@ -15,7 +15,7 @@ import javafx.scene.input.KeyCode;
 
 public class Snake implements Animatable {
     private static final float speed = 2;
-    private int lives = 2;
+    private int lives = 4;
     private String player;
 
     private SnakeHead head;
