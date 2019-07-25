@@ -14,13 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Homecoming_missile extends Enemy implements Animatable, Interactable {
+public class Homing_missles extends Enemy implements Animatable, Interactable {
 
     private Point2D heading;
     private static Random rnd = new Random();
-//    private List<Float> angle_directions;
 
-    public Homecoming_missile(){
+    public Homing_missles(){
         super(-20,-10);
 
         setImage(Globals.getInstance().getImage("Enemy2"));
