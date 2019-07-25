@@ -28,6 +28,6 @@ public class LengthPowerUp extends GameEntity implements Interactable {
 
     @Override
     public String getMessage() {
-        return "Got power-up :)";
+        return "Growth spur! +4 points :)";
     }
 }

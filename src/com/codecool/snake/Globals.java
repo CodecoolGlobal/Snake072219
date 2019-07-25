@@ -42,7 +42,7 @@ public class Globals {
         resources.addImage("Enemy2", new Image("homing.gif"));
         resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
         resources.addImage("PowerUpNut", new Image("powerup_nut.png"));
-        resources.addImage("PowerUpSpeed", new Image("powerup_speed.png"));
+        resources.addImage("PowerUpCombined", new Image("powerup_combined.png"));
         resources.addImage("zerolife", new Image("0.png"));
         resources.addImage("onelife", new Image("1.png"));
         resources.addImage("twolifes", new Image("2.png"));

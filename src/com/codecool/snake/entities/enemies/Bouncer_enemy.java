@@ -19,7 +19,7 @@ public class Bouncer_enemy extends Enemy implements Animatable, Interactable {
     private static Random rnd = new Random();
 
     public Bouncer_enemy() {
-        super(-10, 2);
+        super(-1, 2);
 
         setImage(Globals.getInstance().getImage("Bouncer_enemy"));
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);

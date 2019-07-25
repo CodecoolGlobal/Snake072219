@@ -19,8 +19,8 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
     private Point2D heading;
     private static Random rnd = new Random();
 
-    public Homing_rocket() {
-        super(-20, -10);
+    public Homing_rocket(){
+        super(-1,-10);
 
         setImage(Globals.getInstance().getImage("Enemy2"));
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);
@@ -85,6 +85,16 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
         if (entity instanceof Beam) {
             destroy();
         }
+        List<Snake> snakes = new ArrayList<>();
+        snakes.add(Globals.getInstance().snake);
+        snakes.add(Globals.getInstance().snake2);
+        int index = rnd.nextInt(snakes.size());
+        snakes.get(index).getHead();
+
+        double dir = Utils.getDirectionBetweenTwo(this, snakes.get(index).getHead());
+        setRotate(dir);
+        int speed = 2;
+        heading = Utils.directionToVector(dir,speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
     }

@@ -7,15 +7,11 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.powerups.HealthPowerUp;
 import com.codecool.snake.entities.powerups.LengthPowerUp;
-import com.codecool.snake.entities.powerups.SpeedPowerUp;
-
-import java.util.concurrent.ScheduledExecutorService;
+import com.codecool.snake.entities.powerups.CombinedPowerUp;
 
 import com.codecool.snake.entities.weapons.Beam;
 import com.sun.javafx.geom.Vec2d;
 import javafx.geometry.Point2D;
-
-import java.time.Duration;
 
 
 public class SnakeHead extends GameEntity implements Interactable {
@@ -49,7 +45,7 @@ public class SnakeHead extends GameEntity implements Interactable {
     public void apply(GameEntity entity) {
         if (entity instanceof Enemy) {
             System.out.println(getMessage());
-            snake.changeHealth(((Enemy) entity).getDamage());
+            snake.changeLives(((Enemy) entity).getDamage());
         }
         if(entity instanceof LengthPowerUp){
             System.out.println(getMessage());
@@ -57,14 +53,19 @@ public class SnakeHead extends GameEntity implements Interactable {
         }
         if(entity instanceof HealthPowerUp){
             System.out.println(getMessage());
-            snake.changeHealth(20);
+            if(snake.getLives() < 4){
+                snake.changeLives(1);
+            }
         }
-        if(entity instanceof SpeedPowerUp) {
+        if(entity instanceof CombinedPowerUp) {
             System.out.println(getMessage());
-            //snake.changeSpeed(int some_speed);
+            if(snake.getLives() < 4){
+                snake.changeLives(1);
+            }
+            snake.addPart(4);
         }
         if(entity instanceof Beam){
-            snake.changeHealth(-1);
+            snake.changeLives(-1);
         }
         if (entity instanceof SnakeHead) {
             try {

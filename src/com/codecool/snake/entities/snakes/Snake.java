@@ -15,7 +15,7 @@ import javafx.scene.input.KeyCode;
 
 public class Snake implements Animatable {
     private static final float speed = 2;
-    private int health = 100;
+    private int lives = 4;
     private String player;
 
     private SnakeHead head;
@@ -37,10 +37,10 @@ public class Snake implements Animatable {
 
         SnakeControl turnDir = getUserInput(this.player);
         if (turnDir.equals(SnakeControl.SHOOT)) {
-            try{
-                Globals.getInstance().display.add(new Beam(this,5));
+            try {
+                Globals.getInstance().display.add(new Beam(this, 5));
 
-            }catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 InputHandler.getInstance().removeKey(KeyCode.SPACE);
                 InputHandler.getInstance().removeKey(KeyCode.CONTROL);
             }
@@ -83,22 +83,17 @@ public class Snake implements Animatable {
         Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
     }
 
-    public void changeHealth(int diff) {
-        health += diff;
+    public void changeLives(int diff) {
+        lives += diff;
     }
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void changeSpeed(int newSpeed) {
-        //speed = newSpeed;
-        System.out.println(speed);
+    public int getLives() {
+        return lives;
     }
 
 
     private void checkForGameOverConditions() {
-        if (head.isOutOfBounds() || health <= 0) {
+        if (head.isOutOfBounds() || lives <= 0) {
             System.out.println("Game Over");
             gameOverPopUp();
         }
