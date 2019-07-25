@@ -48,7 +48,6 @@ public class Beam extends GameEntity implements Interactable, Animatable {
         if (entity instanceof Enemy) {
             System.out.print(getMessage());
             destroy();
-
         }
     }
 
