@@ -32,8 +32,8 @@ public class GameLoop {
             getInstance().game.SnakeHealth1.getNumberOfLives();
             getInstance().game.SnakeHealth2.getActualLives2();
             getInstance().game.SnakeHealth2.getNumberOfLives2();
-            getInstance().game.spawnPowerUps();
-            getInstance().game.spawnEnemies();
+            getInstance().game.spawnRandomPowerUps();
+            getInstance().game.spawnRandomEnemies();
             getInstance().snake.step();
             getInstance().snake2.step();
             for (GameEntity gameObject : getInstance().display.getObjectList()) {

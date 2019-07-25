@@ -78,7 +78,7 @@ public class Game extends Pane {
         scene.setOnKeyReleased(event -> InputHandler.getInstance().setKeyReleased(event.getCode()));
     }
 
-    public void spawnPowerUps() {
+    public void spawnRandomPowerUps() {
         int generatedRandomInt = Utils.getRandomInt(600);
         if (generatedRandomInt == 100) {
             new LengthPowerUp();
@@ -89,7 +89,7 @@ public class Game extends Pane {
         }
     }
 
-    public void spawnEnemies() {
+    public void spawnRandomEnemies() {
         int generatedRandomInt = Utils.getRandomInt(600);
         if (generatedRandomInt == 200) {
             new Bouncer_enemy();
