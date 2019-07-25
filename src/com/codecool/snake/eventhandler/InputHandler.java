@@ -26,6 +26,9 @@ public class InputHandler {
         if(keyStates.containsKey(key)) return keyStates.get(key);
         return false;
     }
+    public void removeKey(KeyCode keyCode){
+        keyStates.remove(keyCode);
+    }
 
     private InputHandler() {
         // singleton needs the class to have private constructor

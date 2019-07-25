@@ -4,6 +4,7 @@ import com.codecool.snake.DelayedModificationList;
 import com.codecool.snake.Globals;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
+import com.codecool.snake.entities.weapons.Beam;
 import com.codecool.snake.eventhandler.InputHandler;
 
 import com.sun.javafx.geom.Vec2d;
@@ -36,6 +37,13 @@ public class Snake implements Animatable {
 
         SnakeControl turnDir = getUserInput(this.player);
         if (turnDir.equals(SnakeControl.SHOOT)) {
+            try{
+                Globals.getInstance().display.add(new Beam(this,5));
+
+            }catch (IllegalArgumentException e){
+                InputHandler.getInstance().removeKey(KeyCode.SHIFT);
+                InputHandler.getInstance().removeKey(KeyCode.CONTROL);
+            }
             System.out.println("shoot");
         } else {
             head.updateRotation(turnDir, speed);
@@ -58,6 +66,8 @@ public class Snake implements Animatable {
             SnakeControl turnDir = SnakeControl.INVALID;
             if (InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
             if (InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.CONTROL)) turnDir = SnakeControl.SHOOT;
+
             return turnDir;
         }
     }

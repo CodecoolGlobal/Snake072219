@@ -21,6 +21,8 @@ public class SpeedPowerUp extends GameEntity implements Interactable {
     @Override
     public void apply(GameEntity entity) {
         if(entity instanceof SnakeHead){
+            Globals.getInstance().snake.changeSpeed(20);
+
             System.out.println(getMessage());
             destroy();
         }

@@ -5,19 +5,21 @@ import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.entities.snakes.SnakeHead;
+import com.codecool.snake.entities.weapons.Beam;
 import javafx.geometry.Point2D;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Homecoming_missile extends Enemy implements Animatable, Interactable {
+public class Homing_rocket extends Enemy implements Animatable, Interactable {
 
     private Point2D heading;
     private static Random rnd = new Random();
-//    private List<Float> angle_directions;
 
-    public Homecoming_missile(){
+    public Homing_rocket(){
         super(-20,-10);
 
         setImage(Globals.getInstance().getImage("Enemy2"));
@@ -27,13 +29,14 @@ public class Homecoming_missile extends Enemy implements Animatable, Interactabl
         double direction = rnd.nextDouble() * 1;
         setRotate(direction);
 
-        int speed = 1;
+        int speed = 2;
         heading = Utils.directionToVector(direction, speed);
     }
     @Override
     public void step() {
         if (isOutOfBounds()) {
-            destroy();
+            heading = Utils.directionToVector(getRotate()-60, 2);
+            setRotate(getRotate()-60);
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -45,15 +48,18 @@ public class Homecoming_missile extends Enemy implements Animatable, Interactabl
             System.out.println(getMessage());
             destroy();
         }
-        double dir = Utils.getDirectionBetweenTwo(this, Globals.getInstance().snake.getHead());
-//        double dir_snake2 = Utils.getDirectionBetweenTwo(this, Globals.getInstance().snake2.getHead());
+        if(entity instanceof Beam){
+            destroy();
+        }
+        List<Snake> snakes = new ArrayList<>();
+        snakes.add(Globals.getInstance().snake);
+        snakes.add(Globals.getInstance().snake2);
+        int index = rnd.nextInt(snakes.size());
+        snakes.get(index).getHead();
 
-//        angle_directions.add((float) dir_snake);
-//        angle_directions.add((float) dir_snake2);
-//        Random rand = new Random();
-//        float randomAngle = angle_directions.get(rand.nextInt(angle_directions.size()));
+        double dir = Utils.getDirectionBetweenTwo(this, snakes.get(index).getHead());
         setRotate(dir);
-        int speed = 1;
+        int speed = 2;
         heading = Utils.directionToVector(dir,speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());

@@ -9,6 +9,7 @@ import com.codecool.snake.entities.snakes.SnakeHead;
 
 import java.util.Random;
 
+import com.codecool.snake.entities.weapons.Beam;
 import javafx.geometry.Point2D;
 
 
@@ -43,6 +44,9 @@ public class Bouncer_enemy extends Enemy implements Animatable, Interactable {
     public void apply(GameEntity entity) {
         if (entity instanceof SnakeHead) {
             System.out.println(getMessage());
+            destroy();
+        }
+        if(entity instanceof Beam){
             destroy();
         }
     }
