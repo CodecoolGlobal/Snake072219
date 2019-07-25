@@ -12,6 +12,7 @@ import com.codecool.snake.eventhandler.InputHandler;
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import jdk.jshell.execution.Util;
 
 import java.util.Random;
 
@@ -37,7 +38,7 @@ public class Game extends Pane {
     public void init() {
         spawnSnake(250, 500);
         spawnSnake2(750, 500);
-        spawnEnemies(4);
+        spawnEnemies(2);
         spawnPowerUps(2);
 
         GameLoop gameLoop = new GameLoop(snake1, snake2);
@@ -78,14 +79,22 @@ public class Game extends Pane {
     }
 
     public void spawnPowerUps() {
-        Random rand = new Random();
-        int n = rand.nextInt(500);
-        if (n == 33) {
+        int generatedRandomInt = Utils.getRandomInt(600);
+        if (generatedRandomInt == 100) {
             new LengthPowerUp();
-        } else if (n == 66) {
+        } else if (generatedRandomInt == 300) {
             new HealthPowerUp();
-        } else if (n == 99) {
+        } else if (generatedRandomInt == 500) {
             new CombinedPowerUp();
+        }
+    }
+
+    public void spawnEnemies() {
+        int generatedRandomInt = Utils.getRandomInt(600);
+        if (generatedRandomInt == 200) {
+            new Bouncer_enemy();
+        } else if (generatedRandomInt == 400) {
+            new Homing_rocket();
         }
     }
 }

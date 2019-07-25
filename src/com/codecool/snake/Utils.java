@@ -3,6 +3,8 @@ package com.codecool.snake;
 import com.codecool.snake.entities.GameEntity;
 import javafx.geometry.Point2D;
 
+import java.util.Random;
+
 public class Utils {
 
     /*
@@ -20,5 +22,11 @@ public class Utils {
         double otherSide = otherEntity.getY() - baseEntity.getY();
         double angle = (Math.atan2(otherSide, oneSide) + Math.PI) / Math.PI * 180 - 90;
         return angle;
+    }
+
+    public static int getRandomInt(int bound) {
+        Random randInt = new Random();
+        int randomInt = randInt.nextInt(bound);
+        return randomInt;
     }
 }
