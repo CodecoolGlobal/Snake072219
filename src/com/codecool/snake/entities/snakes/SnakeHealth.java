@@ -7,12 +7,12 @@ import javafx.scene.image.ImageView;
 public class SnakeHealth {
 
     public int getActualHealth() {
-        int SnakeHealth1 = Globals.getInstance().snake.getHealth();
+        int SnakeHealth1 = Globals.getInstance().snake.getLives();
         return SnakeHealth1;
     }
 
     public int getActualHealth2() {
-        int SnakeHealth2 = Globals.getInstance().snake2.getHealth();
+        int SnakeHealth2 = Globals.getInstance().snake2.getLives();
         return SnakeHealth2;
     }
 
@@ -52,7 +52,8 @@ public class SnakeHealth {
     }
 
     public void getNumberOfLives2() {
-        if (getActualHealth2() < 1) {Image result = new Image("0.png");
+        if (getActualHealth2() < 1) {
+            Image result = new Image("0.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);
             result2.setY(20);
