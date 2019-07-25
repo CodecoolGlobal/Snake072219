@@ -7,14 +7,10 @@ import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.powerups.HealthPowerUp;
 import com.codecool.snake.entities.powerups.LengthPowerUp;
-import com.codecool.snake.entities.powerups.SpeedPowerUp;
-
-import java.util.concurrent.ScheduledExecutorService;
+import com.codecool.snake.entities.powerups.CombinedPowerUp;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.geometry.Point2D;
-
-import java.time.Duration;
 
 
 public class SnakeHead extends GameEntity implements Interactable {
@@ -58,9 +54,8 @@ public class SnakeHead extends GameEntity implements Interactable {
             System.out.println(getMessage());
             snake.changeHealth(20);
         }
-        if(entity instanceof SpeedPowerUp) {
+        if(entity instanceof CombinedPowerUp) {
             System.out.println(getMessage());
-            //snake.changeSpeed(int some_speed);
         }
         if (entity instanceof SnakeHead) {
             try {

@@ -4,7 +4,7 @@ import com.codecool.snake.entities.enemies.Bouncer_enemy;
 import com.codecool.snake.entities.enemies.Homing_rocket;
 import com.codecool.snake.entities.powerups.HealthPowerUp;
 import com.codecool.snake.entities.powerups.LengthPowerUp;
-import com.codecool.snake.entities.powerups.SpeedPowerUp;
+import com.codecool.snake.entities.powerups.CombinedPowerUp;
 import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.entities.snakes.SnakeHealth;
 import com.codecool.snake.eventhandler.InputHandler;
@@ -85,7 +85,7 @@ public class Game extends Pane {
         } else if (n == 66) {
             new HealthPowerUp();
         } else if (n == 99) {
-            new SpeedPowerUp();
+            new CombinedPowerUp();
         }
     }
 }
