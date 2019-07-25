@@ -23,19 +23,19 @@ public class SnakeHealth {
             result21.setX(20);
             result21.setY(20);
             Globals.getInstance().game.getChildren().add(result21);
-        } else if (getActualHealth() >= 1 && getActualHealth() < 140) {
+        } else if (getActualHealth() == 1) {
             Image result1 = new Image("1i.png");
             ImageView result21 = new ImageView(result1);
             result21.setX(20);
             result21.setY(20);
             Globals.getInstance().game.getChildren().add(result21);
-        } else if (getActualHealth() >= 140 && getActualHealth() < 180) {
+        } else if (getActualHealth() == 2) {
             Image result1 = new Image("2i.png");
             ImageView result21 = new ImageView(result1);
             result21.setX(20);
             result21.setY(20);
             Globals.getInstance().game.getChildren().add(result21);
-        } else if (getActualHealth() >= 180 && getActualHealth() < 220) {
+        } else if (getActualHealth() == 3) {
             Image result1 = new Image("3i.png");
             ImageView result21 = new ImageView(result1);
             result21.setX(20);
@@ -57,19 +57,19 @@ public class SnakeHealth {
             result2.setX(800);
             result2.setY(20);
             Globals.getInstance().game.getChildren().add(result2);
-        } else if (getActualHealth2() >= 1 && getActualHealth2() < 140) {
+        } else if (getActualHealth2() == 1) {
             Image result = new Image("1.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);
             result2.setY(20);
             Globals.getInstance().game.getChildren().add(result2);
-        } else if (getActualHealth2() >= 140 && getActualHealth2() < 180) {
+        } else if (getActualHealth2() == 2) {
             Image result = new Image("2.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);
             result2.setY(20);
             Globals.getInstance().game.getChildren().add(result2);
-        } else if (getActualHealth2() >= 180 && getActualHealth2() < 220) {
+        } else if (getActualHealth2() == 3) {
             Image result = new Image("3.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);
