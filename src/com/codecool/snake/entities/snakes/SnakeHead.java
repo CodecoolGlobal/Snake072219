@@ -70,7 +70,7 @@ public class SnakeHead extends GameEntity implements Interactable {
         if (entity instanceof SnakeHead) {
             try {
                 snake.gameOverPopUp();
-                Thread.sleep(4);
+                Thread.sleep(40);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
