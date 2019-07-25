@@ -44,7 +44,6 @@ public class Snake implements Animatable {
                 InputHandler.getInstance().removeKey(KeyCode.SPACE);
                 InputHandler.getInstance().removeKey(KeyCode.CONTROL);
             }
-            System.out.println("shoot");
         } else {
             head.updateRotation(turnDir, speed);
         }
