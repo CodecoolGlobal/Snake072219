@@ -29,7 +29,7 @@ public class GameLoop {
     public void step() {
         if (running) {
             getInstance().game.SnakeHealth1.getActualLives1();
-            getInstance().game.SnakeHealth1.getNumberOfLives();
+            getInstance().game.SnakeHealth1.getNumberOfLives1();
             getInstance().game.SnakeHealth2.getActualLives2();
             getInstance().game.SnakeHealth2.getNumberOfLives2();
             getInstance().game.spawnRandomPowerUps();

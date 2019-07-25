@@ -21,7 +21,7 @@ public class SnakeHealth {
         return SnakeLives2;
     }
 
-    public void getNumberOfLives() {
+    public void getNumberOfLives1() {
         if (getActualLives1() < 1) {
             displayHealthBar("0i.png",70,20);
             displayNumberOfLives(getActualLives1(),10,70);
