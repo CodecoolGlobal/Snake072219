@@ -7,6 +7,7 @@ import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.enemies.Enemy;
 import com.codecool.snake.entities.snakes.Snake;
+import com.codecool.snake.entities.snakes.SnakeHead;
 import javafx.geometry.Point2D;
 
 
@@ -16,8 +17,8 @@ public class Beam extends GameEntity implements Interactable, Animatable {
     GameEntity snakeHead;
     private Snake snake;
 
-    public Beam(Snake snake,int speed) {
-        this.snake =snake;
+    public Beam(Snake snake, int speed) {
+        this.snake = snake;
         setImage(Globals.getInstance().getImage("Beam"));
 
         snakeHead = snake.getHead();
@@ -49,7 +50,6 @@ public class Beam extends GameEntity implements Interactable, Animatable {
             destroy();
 
         }
-
     }
 
     @Override

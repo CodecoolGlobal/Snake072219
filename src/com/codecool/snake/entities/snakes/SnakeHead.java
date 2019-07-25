@@ -11,6 +11,7 @@ import com.codecool.snake.entities.powerups.SpeedPowerUp;
 
 import java.util.concurrent.ScheduledExecutorService;
 
+import com.codecool.snake.entities.weapons.Beam;
 import com.sun.javafx.geom.Vec2d;
 import javafx.geometry.Point2D;
 
@@ -61,6 +62,9 @@ public class SnakeHead extends GameEntity implements Interactable {
         if(entity instanceof SpeedPowerUp) {
             System.out.println(getMessage());
             //snake.changeSpeed(int some_speed);
+        }
+        if(entity instanceof Beam){
+            snake.changeHealth(1);
         }
         if (entity instanceof SnakeHead) {
             try {
