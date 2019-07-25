@@ -57,6 +57,9 @@ public class Beam extends GameEntity implements Interactable, Animatable {
                 destroy();
             }
         }
+        if(entity instanceof Beam){
+            destroy();
+        }
     }
 
     @Override
