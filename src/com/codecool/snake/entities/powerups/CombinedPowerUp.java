@@ -28,6 +28,6 @@ public class CombinedPowerUp extends GameEntity implements Interactable {
 
     @Override
     public String getMessage() {
-        return "Got Combined Power-Up! :)";
+        return "Tasty! +1 lives and +4 points! :)";
     }
 }
