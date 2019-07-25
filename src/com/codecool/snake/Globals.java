@@ -38,8 +38,8 @@ public class Globals {
         resources = new Resources();
         resources.addImage("SnakeHead", new Image("snake_headBLUE.png"));
         resources.addImage("SnakeBody", new Image("snake_bodyBLUE.png"));
-        resources.addImage("Bouncer_enemy", new Image("worm_enemy.png"));
-        resources.addImage("Enemy2", new Image("enemy_created_first.png"));
+        resources.addImage("Bouncer_enemy", new Image("worm_enemy.gif"));
+        resources.addImage("Enemy2", new Image("homing.gif"));
         resources.addImage("PowerUpBerry", new Image("powerup_berry.png"));
         resources.addImage("PowerUpNut", new Image("powerup_nut.png"));
         resources.addImage("PowerUpSpeed", new Image("powerup_speed.png"));
