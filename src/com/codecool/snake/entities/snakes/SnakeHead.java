@@ -44,7 +44,6 @@ public class SnakeHead extends GameEntity implements Interactable {
         setY(getY() + heading.getY());
     }
 
-    //    boolean alreadyExecuted = false;
     @Override
     public void apply(GameEntity entity) {
         if (entity instanceof Enemy) {
