@@ -20,7 +20,7 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
     private static Random rnd = new Random();
 
     public Homing_rocket(){
-        super(-20,-10);
+        super(-1,-10);
 
         setImage(Globals.getInstance().getImage("Enemy2"));
         setX(rnd.nextDouble() * Globals.WINDOW_WIDTH);

@@ -6,36 +6,36 @@ import javafx.scene.image.ImageView;
 
 public class SnakeHealth {
 
-    public int getActualHealth() {
-        int SnakeHealth1 = Globals.getInstance().snake.getLives();
-        return SnakeHealth1;
+    public int getActualLives1() {
+        int SnakeLives1 = Globals.getInstance().snake.getLives();
+        return SnakeLives1;
     }
 
-    public int getActualHealth2() {
-        int SnakeHealth2 = Globals.getInstance().snake2.getLives();
-        return SnakeHealth2;
+    public int getActualLives2() {
+        int SnakeLives2 = Globals.getInstance().snake2.getLives();
+        return SnakeLives2;
     }
 
     public void getNumberOfLives() {
-        if (getActualHealth() < 1) {
+        if (getActualLives1() < 1) {
             Image result1 = new Image("0.png");
             ImageView result21 = new ImageView(result1);
             result21.setX(20);
             result21.setY(20);
             Globals.getInstance().game.getChildren().add(result21);
-        } else if (getActualHealth() == 1) {
+        } else if (getActualLives1() == 1) {
             Image result1 = new Image("1i.png");
             ImageView result21 = new ImageView(result1);
             result21.setX(20);
             result21.setY(20);
             Globals.getInstance().game.getChildren().add(result21);
-        } else if (getActualHealth() == 2) {
+        } else if (getActualLives1() == 2) {
             Image result1 = new Image("2i.png");
             ImageView result21 = new ImageView(result1);
             result21.setX(20);
             result21.setY(20);
             Globals.getInstance().game.getChildren().add(result21);
-        } else if (getActualHealth() == 3) {
+        } else if (getActualLives1() == 3) {
             Image result1 = new Image("3i.png");
             ImageView result21 = new ImageView(result1);
             result21.setX(20);
@@ -52,25 +52,25 @@ public class SnakeHealth {
     }
 
     public void getNumberOfLives2() {
-        if (getActualHealth2() < 1) {
+        if (getActualLives2() < 1) {
             Image result = new Image("0.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);
             result2.setY(20);
             Globals.getInstance().game.getChildren().add(result2);
-        } else if (getActualHealth2() == 1) {
+        } else if (getActualLives2() == 1) {
             Image result = new Image("1.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);
             result2.setY(20);
             Globals.getInstance().game.getChildren().add(result2);
-        } else if (getActualHealth2() == 2) {
+        } else if (getActualLives2() == 2) {
             Image result = new Image("2.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);
             result2.setY(20);
             Globals.getInstance().game.getChildren().add(result2);
-        } else if (getActualHealth2() == 3) {
+        } else if (getActualLives2() == 3) {
             Image result = new Image("3.png");
             ImageView result2 = new ImageView(result);
             result2.setX(800);

@@ -83,7 +83,7 @@ public class Snake implements Animatable {
         Globals.getInstance().display.updateSnakeHeadDrawPosition(head);
     }
 
-    public void changeHealth(int diff) {
+    public void changeLives(int diff) {
         lives += diff;
     }
 
