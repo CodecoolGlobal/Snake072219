@@ -4,8 +4,10 @@ import com.codecool.snake.Globals;
 import com.sun.javafx.geom.Vec2d;
 import javafx.scene.image.ImageView;
 
+
 // The base class for every game entity.
 public abstract class GameEntity extends ImageView {
+
 
     protected GameEntity() {
         Globals.getInstance().display.add(this);

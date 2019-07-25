@@ -5,9 +5,12 @@ import com.codecool.snake.Utils;
 import com.codecool.snake.entities.Animatable;
 import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Interactable;
+import com.codecool.snake.entities.snakes.Snake;
 import com.codecool.snake.entities.snakes.SnakeHead;
+import com.codecool.snake.entities.weapons.Beam;
 import javafx.geometry.Point2D;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -45,13 +48,16 @@ public class Homecoming_missile extends Enemy implements Animatable, Interactabl
             System.out.println(getMessage());
             destroy();
         }
-        double dir = Utils.getDirectionBetweenTwo(this, Globals.getInstance().snake.getHead());
-//        double dir_snake2 = Utils.getDirectionBetweenTwo(this, Globals.getInstance().snake2.getHead());
+        if(entity instanceof Beam){
+            destroy();
+        }
+        List<Snake> snakes = new ArrayList<>();
+        snakes.add(Globals.getInstance().snake);
+        snakes.add(Globals.getInstance().snake2);
+        int index = rnd.nextInt(snakes.size());
+        snakes.get(index).getHead();
 
-//        angle_directions.add((float) dir_snake);
-//        angle_directions.add((float) dir_snake2);
-//        Random rand = new Random();
-//        float randomAngle = angle_directions.get(rand.nextInt(angle_directions.size()));
+        double dir = Utils.getDirectionBetweenTwo(this, snakes.get(index).getHead());
         setRotate(dir);
         int speed = 1;
         heading = Utils.directionToVector(dir,speed);
