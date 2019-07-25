@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Homing_missles extends Enemy implements Animatable, Interactable {
+public class Homing_rocket extends Enemy implements Animatable, Interactable {
 
     private Point2D heading;
     private static Random rnd = new Random();
 
-    public Homing_missles(){
+    public Homing_rocket(){
         super(-20,-10);
 
         setImage(Globals.getInstance().getImage("Enemy2"));
@@ -29,13 +29,14 @@ public class Homing_missles extends Enemy implements Animatable, Interactable {
         double direction = rnd.nextDouble() * 1;
         setRotate(direction);
 
-        int speed = 1;
+        int speed = 2;
         heading = Utils.directionToVector(direction, speed);
     }
     @Override
     public void step() {
         if (isOutOfBounds()) {
-            destroy();
+            heading = Utils.directionToVector(getRotate()-60, 2);
+            setRotate(getRotate()-60);
         }
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());
@@ -58,7 +59,7 @@ public class Homing_missles extends Enemy implements Animatable, Interactable {
 
         double dir = Utils.getDirectionBetweenTwo(this, snakes.get(index).getHead());
         setRotate(dir);
-        int speed = 1;
+        int speed = 2;
         heading = Utils.directionToVector(dir,speed);
         setX(getX() + heading.getX());
         setY(getY() + heading.getY());

@@ -1,7 +1,7 @@
 package com.codecool.snake;
 
 import com.codecool.snake.entities.enemies.Bouncer_enemy;
-import com.codecool.snake.entities.enemies.Homing_missles;
+import com.codecool.snake.entities.enemies.Homing_rocket;
 import com.codecool.snake.entities.powerups.HealthPowerUp;
 import com.codecool.snake.entities.powerups.LengthPowerUp;
 import com.codecool.snake.entities.powerups.SpeedPowerUp;
@@ -58,7 +58,7 @@ public class Game extends Pane {
 
     private void spawnEnemies(int numberOfEnemies) {
         for (int i = 0; i < numberOfEnemies; ++i) new Bouncer_enemy();
-        for (int i = 0; i < numberOfEnemies; ++i) new Homing_missles();
+        for (int i = 0; i < numberOfEnemies; ++i) new Homing_rocket();
 
     }
 
