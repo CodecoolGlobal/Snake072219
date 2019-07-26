@@ -1,11 +1,8 @@
 package com.codecool.snake;
 
 import com.codecool.snake.entities.GameEntity;
-import com.codecool.snake.entities.snakes.Snake;
 import javafx.geometry.Point2D;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Utils {

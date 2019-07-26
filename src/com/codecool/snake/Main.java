@@ -2,12 +2,7 @@ package com.codecool.snake;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-
-
-import java.io.File;
 
 
 public class Main extends Application {
@@ -29,11 +24,11 @@ public class Main extends Application {
 
         game.start();
 
-        String path = "intro-music.wav";
+        /*String path = "intro-music.wav";
         Media hit = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-        mediaPlayer.play();
+        mediaPlayer.play();*/
     }
 
     @Override

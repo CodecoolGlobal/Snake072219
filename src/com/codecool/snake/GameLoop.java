@@ -1,13 +1,13 @@
 package com.codecool.snake;
 
-import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Animatable;
+import com.codecool.snake.entities.GameEntity;
 import com.codecool.snake.entities.Interactable;
 import com.codecool.snake.entities.snakes.Snake;
 
 import java.util.List;
 
-import static com.codecool.snake.Globals.*;
+import static com.codecool.snake.Globals.getInstance;
 
 public class GameLoop {
 
@@ -28,10 +28,8 @@ public class GameLoop {
 
     public void step() {
         if (running) {
-            getInstance().game.SnakeHealth1.getActualLives1();
-            getInstance().game.SnakeHealth1.getNumberOfLives1();
-            getInstance().game.SnakeHealth2.getActualLives2();
-            getInstance().game.SnakeHealth2.getNumberOfLives2();
+            getInstance().game.SnakeHealth1.getActualLives();
+            getInstance().game.SnakeHealth1.displayLives();
             getInstance().game.spawnRandomPowerUps();
             getInstance().game.spawnRandomEnemies();
             getInstance().snake.step();
