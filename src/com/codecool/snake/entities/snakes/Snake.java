@@ -42,7 +42,7 @@ public class Snake implements Animatable {
 
             } catch (IllegalArgumentException e) {
                 InputHandler.getInstance().removeKey(KeyCode.SPACE);
-                InputHandler.getInstance().removeKey(KeyCode.CONTROL);
+                InputHandler.getInstance().removeKey(KeyCode.Q);
             }
         } else {
             head.updateRotation(turnDir, speed);
@@ -58,14 +58,14 @@ public class Snake implements Animatable {
             SnakeControl turnDir = SnakeControl.INVALID;
             if (InputHandler.getInstance().isKeyPressed(KeyCode.A)) turnDir = SnakeControl.TURN_LEFT;
             if (InputHandler.getInstance().isKeyPressed(KeyCode.D)) turnDir = SnakeControl.TURN_RIGHT;
-            if (InputHandler.getInstance().isKeyPressed(KeyCode.SPACE)) turnDir = SnakeControl.SHOOT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.Q)) turnDir = SnakeControl.SHOOT;
             return turnDir;
 
         } else {
             SnakeControl turnDir = SnakeControl.INVALID;
             if (InputHandler.getInstance().isKeyPressed(KeyCode.LEFT)) turnDir = SnakeControl.TURN_LEFT;
             if (InputHandler.getInstance().isKeyPressed(KeyCode.RIGHT)) turnDir = SnakeControl.TURN_RIGHT;
-            if (InputHandler.getInstance().isKeyPressed(KeyCode.CONTROL)) turnDir = SnakeControl.SHOOT;
+            if (InputHandler.getInstance().isKeyPressed(KeyCode.SPACE)) turnDir = SnakeControl.SHOOT;
 
             return turnDir;
         }
@@ -136,7 +136,7 @@ public class Snake implements Animatable {
     //this could go somewhere else
     private void gameRestart() {
         InputHandler.getInstance().removeKey(KeyCode.SPACE);
-        InputHandler.getInstance().removeKey(KeyCode.CONTROL);
+        InputHandler.getInstance().removeKey(KeyCode.Q);
         InputHandler.getInstance().removeKey(KeyCode.A);
         InputHandler.getInstance().removeKey(KeyCode.D);
         InputHandler.getInstance().removeKey(KeyCode.LEFT);

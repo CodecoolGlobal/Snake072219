@@ -29,12 +29,11 @@ public class Main extends Application {
 
         game.start();
 
-        String bip = "intro-music.wav";
-        Media hit = new Media(new File(bip).toURI().toString());
+        String path = "intro-music.wav";
+        Media hit = new Media(new File(path).toURI().toString());
         MediaPlayer mediaPlayer = new MediaPlayer(hit);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
         mediaPlayer.play();
-//        mediaPlayer.setAutoPlay(true);
     }
 
     @Override
