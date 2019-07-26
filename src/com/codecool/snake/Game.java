@@ -89,7 +89,7 @@ public class Game extends Pane {
         int generatedRandomInt = Utils.getRandomInt(600);
         if (generatedRandomInt == 200) {
             new Bouncer_enemy();
-        } else if (generatedRandomInt > 395 && generatedRandomInt < 401) {
+        } else if (generatedRandomInt == 400) {
             new Homing_rocket();
         }
     }

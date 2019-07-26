@@ -14,7 +14,7 @@ public class GameLoop {
     private boolean running = false;
 
     public GameLoop(Snake snake, Snake snake2) {
-        getInstance().snake = snake;
+        getInstance().snake1 = snake;
         getInstance().snake2 = snake2;
     }
 
@@ -32,7 +32,7 @@ public class GameLoop {
             getInstance().game.SnakeHealth1.displayLives();
             getInstance().game.spawnRandomPowerUps();
             getInstance().game.spawnRandomEnemies();
-            getInstance().snake.step();
+            getInstance().snake1.step();
             getInstance().snake2.step();
             for (GameEntity gameObject : getInstance().display.getObjectList()) {
                 if (gameObject instanceof Animatable) {

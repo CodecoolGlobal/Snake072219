@@ -17,7 +17,7 @@ public class Globals {
 
     public Display display;
     public Game game;
-    public Snake snake;
+    public Snake snake1;
     public Snake snake2;
 
 

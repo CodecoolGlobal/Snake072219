@@ -15,7 +15,7 @@ import java.util.Map;
 public class SnakeHealth {
 
     public Map<String, Integer> getActualLives() {
-        int SnakeLives1 = Globals.getInstance().snake.getLives();
+        int SnakeLives1 = Globals.getInstance().snake1.getLives();
         int SnakeLives2 = Globals.getInstance().snake2.getLives();
         Map<String, Integer> snakeHealth = new HashMap<>();
         snakeHealth.put("snake1", SnakeLives1);

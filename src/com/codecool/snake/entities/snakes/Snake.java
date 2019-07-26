@@ -112,7 +112,7 @@ public class Snake implements Animatable {
             Globals.getInstance().game.alreadyExecuted = true;
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Game Over");
-            alert.setHeaderText("Player 1 Score: " + Globals.getInstance().snake.body.getList().size() +
+            alert.setHeaderText("Player 1 Score: " + Globals.getInstance().snake1.body.getList().size() +
                     "\n" + "Player 2 Score: " + Globals.getInstance().snake2.body.getList().size());
             alert.setContentText("Choose your option");
             ButtonType restart = new ButtonType("Restart");

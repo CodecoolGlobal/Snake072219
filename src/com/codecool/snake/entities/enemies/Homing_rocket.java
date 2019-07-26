@@ -54,7 +54,7 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
 
 
     public SnakeHead getClosestSnake() {
-        snakes.add(Globals.getInstance().snake);
+        snakes.add(Globals.getInstance().snake1);
         snakes.add(Globals.getInstance().snake2);
         List<Double> distances = new ArrayList<>();
 
@@ -65,7 +65,7 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
             distances.add(distance);
         }
         if (distances.get(0) < distances.get(1)) {
-            return Globals.getInstance().snake.getHead();
+            return Globals.getInstance().snake1.getHead();
         } else {
             return Globals.getInstance().snake2.getHead();
         }
@@ -82,7 +82,7 @@ public class Homing_rocket extends Enemy implements Animatable, Interactable {
             destroy();
         }
         List<Snake> snakes = new ArrayList<>();
-        snakes.add(Globals.getInstance().snake);
+        snakes.add(Globals.getInstance().snake1);
         snakes.add(Globals.getInstance().snake2);
         int index = rnd.nextInt(snakes.size());
         snakes.get(index).getHead();
